@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareScale | B2B Growth & Workforce Training Calculator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style> html { scroll-behavior: smooth; } </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-800 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="trending-up" class="w-6 h-6 text-emerald-400"></i>
+                <span class="font-bold text-lg tracking-tight">Care<span class="text-emerald-400">Scale</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#calculator" class="hover:text-emerald-400 transition">ROI Calculator</a>
+                <a href="#strategy" class="hover:text-emerald-400 transition">Growth Strategy</a>
+                <a href="#framework" class="hover:text-emerald-400 transition">Sales Pipeline</a>
+                <a href="#author" class="hover:text-emerald-400 transition">About Developer</a>
+            </nav>
+            <a href="#calculator" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">Interactive Tool</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 px-6 border-b border-slate-800/60">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                <span>Enterprise Training & B2B Growth Analytics</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Quantifying the Value of Workforce Development
+            </h1>
+            <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+                An interactive decision-support tool designed for healthcare executives and enterprise managers to model compliance risk reduction, staff retention, and training return-on-investment.
+            </p>
+        </div>
+    </section>
+
+    <!-- Interactive Client Assessment & Value Calculator -->
+    <section id="calculator" class="py-16 px-6 bg-slate-900/40">
+        <div class="max-w-5xl mx-auto">
+            <div class="mb-10 text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">Workforce Impact & ROI Calculator</h2>
+                <p class="text-slate-400 text-sm">Simulate consultative discovery to see how structured training programs drive institutional savings.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+                <!-- Input Controls -->
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Organization Type</label>
+                        <select id="orgType" onchange="runCalculator()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm">
+                            <option value="care">Care Homes & Assisted Living</option>
+                            <option value="clinic">Private Medical Clinics</option>
+                            <option value="homecare">Domiciliary & Home Care Services</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Total Staff / Caregivers</label>
+                        <input type="number" id="staff" value="50" oninput="runCalculator()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Estimated Annual Staff Turnover (%)</label>
+                        <input type="number" id="turnover" value="18" oninput="runCalculator()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm">
+                    </div>
+                </div>
+
+                <!-- Strategic Business Projection -->
+                <div class="bg-slate-950 border border-slate-800 rounded-xl p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-6">Strategic Value Output</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="text-xs text-slate-500 mb-1">Projected Annual Cost of Churn / Non-Compliance</div>
+                                <div id="churnCost" class="text-2xl font-bold text-rose-400">£45,000</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 mb-1">Estimated Savings with Continuous Training</div>
+                                <div id="savings" class="text-3xl font-bold text-emerald-400">£18,000 / year</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 mb-1">Recommended Engagement Model</div>
+                                <div id="engagement" class="text-sm font-semibold text-white">Annual Enterprise Learning Subscription</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium text-center">
+                        Qualified B2B Prospect — High Conversion Potential
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Thinking & Business Methodology -->
+    <section id="strategy" class="py-20 px-6 border-t border-slate-800/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">Consultative Sales Strategy</h2>
+                <p class="text-slate-400 text-sm">How modern business development creates long-term value instead of pushing transactional sales.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
+                    <div class="w-10 h-10 bg-emerald-500/10 text-emerald-400 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="search-code" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Need Discovery</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Asking targeted questions to uncover institutional bottlenecks, compliance liabilities, and upskilling gaps before offering a tailored solution.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
+                    <div class="w-10 h-10 bg-emerald-500/10 text-emerald-400 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="pie-chart" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Value-Driven Pitching</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Framing learning solutions not as cost items, but as strategic investments that directly reduce staff turnover and enhance operational quality.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
+                    <div class="w-10 h-10 bg-emerald-500/10 text-emerald-400 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="handshake" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Long-Term Partnerships</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Nurturing client accounts through consistent post-onboarding check-ins to unlock expansion revenue and recurring annual renewals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline Architecture -->
+    <section id="framework" class="py-16 px-6 border-t border-slate-800/60 bg-slate-900/20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">Modern Outbound & Pipeline Execution</h2>
+            <div class="space-y-4">
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-lg flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <span class="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xs">1</span>
+                        <div>
+                            <div class="font-semibold text-white text-sm">Target Research & Segmentation</div>
+                            <div class="text-xs text-slate-400">Identifying key decision-makers (Operations Directors, Training Managers) across healthcare sectors.</div>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-lg flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <span class="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xs">2</span>
+                        <div>
+                            <div class="font-semibold text-white text-sm">Multi-Channel Cold Outreach</div>
+                            <div class="text-xs text-slate-400">Combining tailored LinkedIn outreach, phone calls, and structured email follow-ups.</div>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-lg flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <span class="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xs">3</span>
+                        <div>
+                            <div class="font-semibold text-white text-sm">Consultative Product Demo</div>
+                            <div class="text-xs text-slate-400">Presenting custom learning solutions aligned to specific institutional goals and CRM tracking.</div>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Profile -->
+    <section id="author" class="py-16 px-6 border-t border-slate-800/60 bg-slate-900/40">
+        <div class="max-w-4xl mx-auto bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-4">
+                <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Business Strategy & BD Lead</div>
+                <h3 class="text-2xl font-bold text-white">Muhammed Safwan</h3>
+                <p class="text-slate-400 text-sm max-w-md leading-relaxed">
+                    Bridging analytical problem-solving with consultative sales strategy to identify opportunities, build strong client relationships, and drive sustainable growth.
+                </p>
+            </div>
+            <div class="flex-shrink-0">
+                <a href="mailto:safwan@example.com" class="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs px-6 py-3 rounded-lg shadow-lg shadow-emerald-600/20 transition flex items-center space-x-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    <span>Connect on Strategy</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-6 border-t border-slate-800/60 text-center text-xs text-slate-500">
+        <p>© 2026 CareScale Portal. Designed for B2B Strategy & Growth Analytics.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function runCalculator() {
+            const staff = parseInt(document.getElementById('staff').value) || 0;
+            const turnover = parseFloat(document.getElementById('turnover').value) || 0;
+
+            const churnCost = Math.round(staff * (turnover / 100) * 5000);
+            const savings = Math.round(churnCost * 0.4);
+
+            document.getElementById('churnCost').innerText = '£' + churnCost.toLocaleString();
+            document.getElementById('savings').innerText = '£' + savings.toLocaleString() + ' / year';
+
+            const engagement = document.getElementById('engagement');
+            if (staff > 100) {
+                engagement.innerText = "Custom Enterprise Learning Solution";
+            } else if (staff > 30) {
+                engagement.innerText = "Annual Corporate Subscription";
+            } else {
+                engagement.innerText = "Team Modular Training Package";
+            }
+        }
+    </script>
+</body>
+</html>
